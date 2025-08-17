@@ -9,7 +9,12 @@
     "check-types": "turbo run check-types",
     "// Package management": "",
     "manypkg:fix": "manypkg fix",
-    "postinstall": "manypkg check"
+    "postinstall": "manypkg check",
+    "// Release management": "",
+    "release:all": "pnpm -w run release:runlintic && pnpm -w run release:docs && pnpm -w run release:web",
+    "release:runlintic": "pnpm -w --filter packages/release-it release",
+    "release:docs": "pnpm -w --filter docs release",
+    "release:web": "pnpm -w --filter web release"
   },
   "devDependencies": {
     "@manypkg/cli": "^0.25.0",

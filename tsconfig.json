@@ -19,14 +19,18 @@
             "@repo/ui/*": ["packages/ui/src/*"],
             "@repo/eslint-config": ["packages/eslint-config"],
             "@repo/tailwind-config": ["packages/tailwind-config"],
-            "@repo/typescript-config": ["packages/typescript-config"]
+            "@repo/typescript-config": ["packages/typescript-config"],
+            "@repo/release-it": ["packages/release-it"]
         }
     },
     "files": [],
     "references": [
         { "path": "./apps/web" },
         { "path": "./apps/docs" },
-        { "path": "./packages/ui" }
+        { "path": "./packages/ui" },
+        { "path": "./packages/eslint-config" },
+        { "path": "./packages/release-it" },
+        { "path": "./packages/typescript-config" }
     ],
     "exclude": ["node_modules", "**/node_modules", "**/.next", "**/dist"]
 }
