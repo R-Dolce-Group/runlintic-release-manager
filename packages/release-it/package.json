@@ -4,6 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "// Dev workflow": "dev = apps/docs + apps/web",
+    "build": "turbo run build",
+    "build:all": "turbo run build",
     "// Dependency analysis": "",
     "clean": "rm -rf packages/*/dist apps/*/.next .turbo packages/*/.turbo apps/*/.turbo",
     "clean:all": "pnpm -w run clean && rm -rf node_modules packages/*/node_modules apps/*/node_modules pnpm-lock.yaml",

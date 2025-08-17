@@ -17,7 +17,7 @@ module.exports = {
     "^@/constants/(.*)$",
     "^@/lib/(.*)$",
     "^@/hooks/(.*)$",
-    "^@shared/ui$",
+    "^@runlintic/ui$",
     "^@/components/(.*)$",
     "^@/features/(.*)$",
     "^@/assets/styles/(.*)$",
