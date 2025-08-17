@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint --max-warnings 0",
     "check-types": "tsc --noEmit",
-    "release": "export $(grep -v '^#' packages/release-it/.env | xargs) && release-it",
+    "release": "export $(grep -v '^#' ../../packages/release-it/.env | xargs) && release-it",
     "release:dry": "release-it --dry-run",
     "release:minor": "release-it minor",
     "release:major": "release-it major",
@@ -29,6 +29,7 @@
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
     "eslint": "^9.33.0",
-    "typescript": "5.9.2"
+    "typescript": "5.9.2",
+    "release-it": "^19.0.4"
   }
 }
