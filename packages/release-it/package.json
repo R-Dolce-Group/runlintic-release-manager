@@ -1,0 +1,62 @@
+{
+  "name": "release-it",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "// Dependency analysis": "",
+    "clean": "rm -rf packages/*/dist apps/*/.next .turbo packages/*/.turbo apps/*/.turbo",
+    "clean:all": "pnpm -w run clean && rm -rf node_modules packages/*/node_modules apps/*/node_modules pnpm-lock.yaml",
+    "clean:cache": "rm -rf .turbo packages/*/.turbo apps/*/.turbo",
+    "depcheck": "depcheck",
+    "deps:audit": "pnpm audit",
+    "deps:audit-fix": "pnpm audit --fix",
+    "deps:check": "pnpm -w run depcheck && pnpm -w run knip",
+    "deps:clean": "pnpm -w run clean:all && pnpm install",
+    "deps:dedupe": "pnpm dedupe",
+    "deps:outdated": "pnpm outdated",
+    "deps:update": "pnpm update",
+    "deps:update-latest": "pnpm update --latest",
+    "deps:validate": "pnpm -w run deps:check && pnpm -w run deps:audit",
+    "// Quality checks": "",
+    "check-all": "pnpm -w run lint && pnpm -w run typecheck && pnpm -w run deps:check && pnpm -w run build",
+    "check-types": "turbo run check-types",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo lint -- --fix && manypkg fix",
+    "fix-lockfile": "pnpm install --frozen-lockfile",
+    "lockfile:fix": "pnpm fix-lockfile",
+    "type-check": "tsc --noEmit",
+    "typecheck": "turbo typecheck",
+    "// Package management": "",
+    "manypkg:fix": "manypkg fix",
+    "postinstall": "manypkg check",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@manypkg/cli": "^0.25.0",
+    "@release-it/conventional-changelog": "^10.0.1",
+    "auto-changelog": "^2.5.0",
+    "conventional-changelog-conventionalcommits": "^9.1.0",
+    "depcheck": "^1.4.7",
+    "husky": "^9.1.7",
+    "prettier": "^3.6.2",
+    "release-it": "^19.0.4",
+    "turbo": "^2.5.6",
+    "typescript": "5.9.2"
+  },
+  "manypkg": {
+    "ignoredRules": [
+      "INTERNAL_MISMATCH"
+    ]
+  },
+  "keywords": [],
+  "author": "R. Dolce Group",
+  "license": "ISC",
+  "packageManager": "pnpm@10.14.0",
+  "engines": {
+    "node": ">=22"
+  }
+}
