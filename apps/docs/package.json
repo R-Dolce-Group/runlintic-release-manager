@@ -8,7 +8,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --max-warnings 0",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "release": "export $(grep -v '^#' packages/release-it/.env | xargs) && release-it",
+    "release:dry": "release-it --dry-run",
+    "release:minor": "release-it minor",
+    "release:major": "release-it major",
+    "release:patch": "release-it patch",
+    "release:beta": "release-it --preRelease=beta"
   },
   "dependencies": {
     "@repo/ui": "workspace:*",

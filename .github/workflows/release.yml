@@ -79,17 +79,19 @@ jobs:
         if: ${{ github.event.inputs.dry_run == 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           echo "🧪 Running dry-run release..."
-          pnpm release:${{ github.event.inputs.increment }} --dry-run
+          pnpm run release:all:${{ github.event.inputs.increment }}:dry
 
       - name: Run release
         if: ${{ github.event.inputs.dry_run == 'false' }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           echo "🚀 Running actual release..."
-          pnpm release:${{ github.event.inputs.increment }}
+          pnpm run release:all:${{ github.event.inputs.increment }}
 
       - name: Release Summary
         if: success()
