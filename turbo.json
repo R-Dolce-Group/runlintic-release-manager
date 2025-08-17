@@ -38,6 +38,30 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "release": {
+      "dependsOn": ["^build", "^lint", "^typecheck"],
+      "outputs": []
+    },
+    "release:dry": {
+      "dependsOn": ["^build", "^lint", "^typecheck"],
+      "outputs": []
+    },
+    "release:patch": {
+      "dependsOn": ["^build", "^lint", "^typecheck"],
+      "outputs": []
+    },
+    "release:minor": {
+      "dependsOn": ["^build", "^lint", "^typecheck"],
+      "outputs": []
+    },
+    "release:major": {
+      "dependsOn": ["^build", "^lint", "^typecheck"],
+      "outputs": []
+    },
+    "release:beta": {
+      "dependsOn": ["^build", "^lint", "^typecheck"],
+      "outputs": []
     }
   }
 }
