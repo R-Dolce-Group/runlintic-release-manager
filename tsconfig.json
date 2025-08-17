@@ -20,11 +20,13 @@
             "@repo/eslint-config": ["packages/eslint-config"],
             "@repo/tailwind-config": ["packages/tailwind-config"],
             "@repo/typescript-config": ["packages/typescript-config"],
-            "@repo/release-it": ["packages/release-it"]
+            "@repo/release-it": ["packages/release-it"],
+            "@repo/changelog": ["./CHANGELOG.md"]
         }
     },
     "files": [],
     "references": [
+        { "path": "./"},
         { "path": "./apps/web" },
         { "path": "./apps/docs" },
         { "path": "./packages/ui" },

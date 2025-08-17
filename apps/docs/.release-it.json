@@ -30,7 +30,7 @@
         "preRelease": false
     },
     "hooks": {
-        "before:init": ["git fetch --tags", "pnpm run lint:cli", "pnpm run typecheck", "pnpm run depcheck"],
+        "before:init": ["git fetch --tags", "pnpm run lint:fix", "pnpm run typecheck", "pnpm run depcheck"],
         "after:bump": "npx auto-changelog --commit-limit false --template keepachangelog",
         "after:git:release": "echo 'Release tagged and pushed to GitHub'",
         "after:release": "echo Successfully released ${name} v${version} to GitHub."
