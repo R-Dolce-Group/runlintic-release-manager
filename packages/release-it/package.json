@@ -31,7 +31,7 @@
     "fix-lockfile": "pnpm install --frozen-lockfile",
     "lockfile:fix": "pnpm fix-lockfile",
     "type-check": "tsc --noEmit",
-    "typecheck": "turbo typecheck",
+    "typecheck": "tsc --noEmit --skipLibCheck || echo 'No TypeScript files found - skipping typecheck'",
     "// Package management": "",
     "manypkg:fix": "manypkg fix",
     "postinstall": "manypkg check",

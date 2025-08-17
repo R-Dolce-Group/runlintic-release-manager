@@ -1,0 +1,19 @@
+{
+  "extends": "../typescript-config/base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "allowJs": true
+  },
+  "include": [
+    "src/**/*",
+    "scripts/**/*",
+    "*.ts",
+    "*.tsx"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
+}
