@@ -1,0 +1,12 @@
+{
+  "output": "CHANGELOG.md",
+  "template": "keepachangelog",
+  "unreleased": true,
+  "commitLimit": false,
+  "breakingPattern": "BREAKING CHANGE:",
+  "includeBranch": ["main", "master"],
+  "commitUrl": "https://github.com/R-Dolce-Group/runlintic-release-manager/commit/{id}",
+  "issueUrl": "https://github.com/R-Dolce-Group/runlintic-release-manager/issues/{id}",
+  "mergeUrl": "https://github.com/R-Dolce-Group/runlintic-release-manager/pull/{id}",
+  "compareUrl": "https://github.com/R-Dolce-Group/runlintic-release-manager/compare/{from}...{to}"
+}

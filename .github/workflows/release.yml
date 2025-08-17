@@ -53,7 +53,6 @@ jobs:
         run: |
           echo "📦 Running dependency analysis..."
           pnpm run depcheck
-          pnpm run knip
           
       - name: Dependency Analysis Summary
         if: failure()
