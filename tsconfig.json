@@ -1,0 +1,32 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "lib": ["ESNext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "jsx": "preserve",
+        "incremental": true,
+        "baseUrl": ".",
+        "paths": {
+            "@repo/ui": ["packages/ui/src"],
+            "@repo/ui/*": ["packages/ui/src/*"],
+            "@repo/eslint-config": ["packages/eslint-config"],
+            "@repo/tailwind-config": ["packages/tailwind-config"],
+            "@repo/typescript-config": ["packages/typescript-config"]
+        }
+    },
+    "files": [],
+    "references": [
+        { "path": "./apps/web" },
+        { "path": "./apps/docs" },
+        { "path": "./packages/ui" }
+    ],
+    "exclude": ["node_modules", "**/node_modules", "**/.next", "**/dist"]
+}
