@@ -1,0 +1,42 @@
+{
+    "plugins": {
+        "@release-it/conventional-changelog": {
+            "preset": "conventionalcommits",
+            "infile": "@repo/changelog",
+            "header": "# Changelog\n\nAll notable changes to this project will be documented in this file."
+        }
+    },
+    "git": {
+        "commit": true,
+        "commitMessage": "chore(release): v${version}",
+        "tagName": "v${version}",
+        "requireCleanWorkingDir": true,
+        "requireBranch": false,
+        "requireUpstream": true,
+        "requireCommits": true,
+        "addUntrackedFiles": false,
+        "pushArgs": ["--follow-tags"],
+        "pushRepo": "origin"
+    },
+    "npm": {
+        "publish": false
+    },
+    "github": {
+        "release": true,
+        "releaseName": "Release ${version}",
+        "tokenRef": "GH_TOKEN",
+        "autoGenerate": true,
+        "draft": false,
+        "preRelease": false
+    },
+    "hooks": {
+        "before:init": ["git fetch --tags", "pnpm run lint:cli", "pnpm run typecheck", "pnpm run depcheck"],
+        "after:bump": "npx auto-changelog --commit-limit false --template keepachangelog",
+        "after:git:release": "echo 'Release tagged and pushed to GitHub'",
+        "after:release": "echo Successfully released ${name} v${version} to GitHub."
+    },
+    "verbose": true,
+    "ci": false,
+    "git.commitArgs": ["-S"],
+    "git.tagArgs": ["-s"]
+}
