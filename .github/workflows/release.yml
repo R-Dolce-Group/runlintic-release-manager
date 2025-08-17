@@ -1,0 +1,102 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      increment:
+        description: 'Version increment (patch, minor, major)'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+      dry_run:
+        description: 'Run in dry-run mode (no actual release)'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'pnpm'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10.14.0
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Quality Gates
+        run: |
+          echo "🔍 Running quality checks..."
+          pnpm lint
+          pnpm typecheck
+          
+      - name: Dependency Analysis
+        run: |
+          echo "📦 Running dependency analysis..."
+          pnpm run depcheck
+          pnpm run knip
+          
+      - name: Dependency Analysis Summary
+        if: failure()
+        run: |
+          echo "## ❌ Dependency Analysis Failed" >> $GITHUB_STEP_SUMMARY
+          echo "Please check for:" >> $GITHUB_STEP_SUMMARY
+          echo "- Unused dependencies" >> $GITHUB_STEP_SUMMARY
+          echo "- Missing dependencies" >> $GITHUB_STEP_SUMMARY
+          echo "- Dead code that can be removed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Run \`pnpm run deps:check\` locally to see details." >> $GITHUB_STEP_SUMMARY
+
+      - name: Build Applications
+        run: |
+          echo "🏗️ Building applications..."
+          pnpm build:all
+
+      - name: Git configuration
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run release (dry-run)
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          echo "🧪 Running dry-run release..."
+          pnpm release:${{ github.event.inputs.increment }} --dry-run
+
+      - name: Run release
+        if: ${{ github.event.inputs.dry_run == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          echo "🚀 Running actual release..."
+          pnpm release:${{ github.event.inputs.increment }}
+
+      - name: Release Summary
+        if: success()
+        run: |
+          echo "## 🎉 Release Completed Successfully!" >> $GITHUB_STEP_SUMMARY
+          echo "- **Increment**: ${{ github.event.inputs.increment }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Dry Run**: ${{ github.event.inputs.dry_run }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Repository**: ${{ github.repository }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **Actor**: ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY

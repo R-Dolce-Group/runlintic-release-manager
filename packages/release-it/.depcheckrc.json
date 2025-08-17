@@ -1,0 +1,36 @@
+{
+  "ignores": [
+    "@types/*",
+    "husky",
+    "@commitlint/cli",
+    "@commitlint/config-conventional",
+    "@release-it/conventional-changelog",
+    "auto-changelog",
+    "conventional-changelog-conventionalcommits",
+    "release-it",
+    "turbo",
+    "@turbo/gen",
+    "@manypkg/cli",
+    "knip",
+    "depcheck",
+    "prettier"
+  ],
+  "ignoreDirs": [
+    "dist",
+    "build", 
+    ".next",
+    ".turbo",
+    "node_modules",
+    "coverage"
+  ],
+  "ignorePatterns": [
+    "*.config.js",
+    "*.config.ts",
+    "commitlint.config.js",
+    "prettier.config.js",
+    "turbo.json",
+    ".release-it.json",
+    ".husky/*"
+  ],
+  "skipMissing": false
+}
