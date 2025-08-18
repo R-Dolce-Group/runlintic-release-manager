@@ -2,11 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
-## 1.2.0 (2025-08-18)
+## 1.3.0 (2025-08-18)
 
 * fix: correct auto-changelog path in version script ([890e0aa](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/890e0aa))
 * fix: correct changelog file path in release-it configuration ([506fa70](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/506fa70))
 * fix: correct changelog file paths in docs and web app release configurations ([b506e7c](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/b506e7c))
+* fix: enable non-interactive mode in release-it configurations ([a6ce066](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/a6ce066))
 * fix: improve cross-platform compatibility and simplify NODE_PATH handling in bin scripts ([18dc471](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/18dc471))
 * fix: resolve typecheck infinite loop in release-it package ([decd8bd](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/decd8bd))
 * chore: add .env.example with GitHub token and release configuration settings ([c850c20](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/c850c20))
@@ -23,6 +24,7 @@ All notable changes to this project will be documented in this file.
 * chore: update gitignore files and add environment variable configurations ([4cf2067](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/4cf2067))
 * chore: update node paths and add release-it configuration files ([4df4626](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/4df4626))
 * chore: update release-it configurations and add linting automation documentation ([ce0adec](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/ce0adec))
+* chore(release): release version 1.2.0 ([89d7d61](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/89d7d61))
 * feat: add client-side env vars with NEXT_PUBLIC prefix support ([eba46a0](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/eba46a0))
 * feat: add dependency management scripts and standardize release-it config across packages ([ecbd7c2](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/ecbd7c2))
 * feat: add granular release commands for patch/minor/major versions with dry run options ([1bd67a2](https://github.com/R-Dolce-Group/runlintic-release-manager/commit/1bd67a2))
