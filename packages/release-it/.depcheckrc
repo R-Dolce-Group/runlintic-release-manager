@@ -1,0 +1,10 @@
+{
+  "ignores": [
+    "@repo/eslint-config",
+    "@commitlint/cli",
+    "@commitlint/config-conventional",
+    "@release-it/conventional-changelog",
+    "auto-changelog",
+    "conventional-changelog-conventionalcommits"
+  ]
+}
