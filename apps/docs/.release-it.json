@@ -36,7 +36,7 @@
         "after:release": "echo Successfully released ${name} v${version} to GitHub."
     },
     "verbose": true,
-    "ci": false,
+    "ci": true,
     "git.commitArgs": ["-S"],
     "git.tagArgs": ["-s"]
 }
