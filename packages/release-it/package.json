@@ -1,6 +1,6 @@
 {
   "name": "release-it",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "type": "module",
   "description": "",
   "main": "index.js",
@@ -37,7 +37,7 @@
     "postinstall": "manypkg check",
     "prepare": "husky",
     "// Release Runlintic tools": "",
-    "version": "../../auto-changelog -p && git add ../../CHANGELOG.md",
+    "version": "npx auto-changelog -p && git add CHANGELOG.md",
     "release": "export $(grep -v '^#' .env | xargs) && release-it",
     "release:all": "pnpm -w run release:runlintic && pnpm -w run release:docs && pnpm -w run release:web",
     "release:runlintic": "pnpm -w --filter packages/release-it release",
