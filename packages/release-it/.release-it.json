@@ -37,6 +37,7 @@
     },
     "verbose": true,
     "ci": true,
+    "non-interactive": true,
     "git.commitArgs": ["-S"],
     "git.tagArgs": ["-s"]
 }
